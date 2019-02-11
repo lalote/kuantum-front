@@ -1,58 +1,136 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+  <v-layout text-xs-center wrap style="height:100%;position:relative;">
+    <v-flex>
+    <v-flex xs12>
+      <v-img :src="require('../assets/logo2.png')" contain height="104" ></v-img>
+    </v-flex>
+
+    <v-flex xs12 class="poligono_arriba"></v-flex>
+
+    <!-- <div class="poligono_arriba"></div> -->
+    <!--       <v-flex xs12 class="poligono_arriba" row>
+    -->
+    <!-- <v-img :src="require('../assets/flecha-roja-arriba.png')"  ></v-img> -->
+    <!-- <div class="poligono_arriba"></div> -->
+    <!--  </v-flex> -->
+    <v-flex xs12 class="imagen_fondo">
+      <v-img :src="require('../assets/imagen_fondo.png')" class="imagen_fondo"></v-img>
+    </v-flex>
+    <!-- margin bottom mb-4 -->
+    <v-flex xs12 class="poligono_abajo">
+      <!-- <v-img :src="require('../assets/flecha-roja-abajo.png')"  ></v-img> -->
+      <!-- <div class="poligono_abajo"></div> -->
+    </v-flex>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-}
+  data: () => ({})
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style>
+.poligono_arriba {
+  -webkit-clip-path: polygon(
+    0% 22%,
+    0% 23%,
+    36% 13%,
+    52% 24%,
+    100% 15%,
+    100% 9%,
+    54% 21%,
+    37% 11%
+  );
+  clip-path: polygon(
+    0% 22%,
+    0% 23%,
+    36% 13%,
+    52% 24%,
+    100% 15%,
+    100% 9%,
+    54% 21%,
+    37% 11%
+  );
+  height: 720px;
+  background: red;
+  position: relative;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.imagen_fondo {
+/*   -webkit-clip-path: polygon(
+    0 23%,
+    36% 13%,
+    52% 24%,
+    100% 14%,
+    100% 74%,
+    62% 85%,
+    47% 74%,
+    0 83%
+  ); */
+  clip-path: polygon(
+    0 23%,
+    36% 13%,
+    52% 24%,
+    100% 14%,
+    100% 74%,
+    62% 85%,
+    47% 74%,
+    0 83%
+  );
+
+  position: absolute;
+  top: 52px;
+  width: 100%;
+  height: 720px;
+  z-index: 99999;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.poligono_abajo {
+  -webkit-clip-path: polygon(
+    0 88%,
+    45% 77%,
+    61% 88%,
+    100% 75%,
+    100% 74%,
+    63% 84%,
+    47% 73%
+  );
+  clip-path: polygon(
+    0 88%,
+    45% 77%,
+    61% 88%,
+    100% 75%,
+    100% 74%,
+    63% 84%,
+    47% 73%
+  );
+  position: absolute;
+  height: 720px;
+    width: 100%;
+  background: red;
+  top: 63px;
 }
-a {
-  color: #42b983;
+
+.triangulo_blanco_abajo_izquierda {
+  -webkit-clip-path: polygon(55% 65%, 0 76%, 0 80%);
+  clip-path: polygon(55% 65%, 0 76%, 0 80%);
+  background: white;
+}
+.triangulo_blanco_arriba_izquierda {
+  -webkit-clip-path: polygon(38% 27%, 0 35%, 0 38%);
+  clip-path: polygon(38% 27%, 0 35%, 0 38%);
+  background: white;
+}
+
+.triangulo_rojo_abajo_derecha {
+  -webkit-clip-path: polygon(100% 68%, 74% 77%, 100% 70%);
+  clip-path: polygon(100% 68%, 74% 77%, 100% 70%);
+  background: red;
+}
+
+.triangulo_rojo_arriba_derecha {
+  -webkit-clip-path: polygon(100% 68%, 74% 77%, 100% 70%);
+  clip-path: polygon(100% 68%, 74% 77%, 100% 70%);
+  background: red;
 }
 </style>
