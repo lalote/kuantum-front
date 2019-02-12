@@ -1,26 +1,40 @@
 <template>
-  <v-layout text-xs-center wrap style="height:100%;position:relative;">
+  <v-layout text-xs-center wrap>
     <v-flex>
-    <v-flex xs12>
-      <v-img :src="require('../assets/logo2.png')" contain height="104" ></v-img>
-    </v-flex>
+      <v-flex xs12>
+        <v-img :src="require('../assets/logo2.png')" contain class="logo"></v-img>
+      </v-flex>
+      <v-layout class="contenedor">
+        <div class="titulo_principal">
+          <h1>ENTRENA INTELIGENTE</h1>
+        </div>
 
-    <v-flex xs12 class="poligono_arriba"></v-flex>
+        <div class="titulo_principal">
+          <h2>CUANTIFICA TU PROGRESO</h2>
+        </div>
 
-    <!-- <div class="poligono_arriba"></div> -->
-    <!--       <v-flex xs12 class="poligono_arriba" row>
-    -->
-    <!-- <v-img :src="require('../assets/flecha-roja-arriba.png')"  ></v-img> -->
-    <!-- <div class="poligono_arriba"></div> -->
-    <!--  </v-flex> -->
-    <v-flex xs12 class="imagen_fondo">
-      <v-img :src="require('../assets/imagen_fondo.png')" class="imagen_fondo"></v-img>
-    </v-flex>
-    <!-- margin bottom mb-4 -->
-    <v-flex xs12 class="poligono_abajo">
-      <!-- <v-img :src="require('../assets/flecha-roja-abajo.png')"  ></v-img> -->
-      <!-- <div class="poligono_abajo"></div> -->
-    </v-flex>
+        <v-flex xs12 class="poligono_arriba"></v-flex>
+
+        <!-- <div class="poligono_arriba"></div> -->
+        <!--       <v-flex xs12 class="poligono_arriba" row>
+        -->
+        <!-- <v-img :src="require('../assets/flecha-roja-arriba.png')"  ></v-img> -->
+        <!-- <div class="poligono_arriba"></div> -->
+        <!--  </v-flex> -->
+        <v-flex xs12 class="imagen_danny">
+          <v-img :src="require('../assets/danny-face.png')" class="imagen_danny"></v-img>
+        </v-flex>
+
+        <v-flex xs12 class="imagen_fondo">
+          <v-img :src="require('../assets/imagen_fondo.png')" class="imagen_fondo"></v-img>
+        </v-flex>
+        <!-- margin bottom mb-4 -->
+        <v-flex xs12 class="poligono_abajo">
+          <!-- <v-img :src="require('../assets/flecha-roja-abajo.png')"  ></v-img> -->
+          <!-- <div class="poligono_abajo"></div> -->
+        
+      </v-flex>
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
@@ -32,6 +46,18 @@ export default {
 </script>
 
 <style>
+.contenedor {
+  margin-top: 10px;
+}
+
+.logo {
+  float: left;
+  padding-left: 100px;
+  padding-right: 60px;
+  margin-left: 20px;
+  height: 104px;
+}
+
 .poligono_arriba {
   -webkit-clip-path: polygon(
     0% 22%,
@@ -56,9 +82,10 @@ export default {
   height: 720px;
   background: red;
   position: relative;
+  z-index: 2;
 }
 .imagen_fondo {
-/*   -webkit-clip-path: polygon(
+  /*   -webkit-clip-path: polygon(
     0 23%,
     36% 13%,
     52% 24%,
@@ -83,8 +110,34 @@ export default {
   top: 52px;
   width: 100%;
   height: 720px;
+  z-index: 2;
+}
+.imagen_danny {
+  position: absolute;
+  top: 28px;
+  left: 110px;
+  width: 100%;
+  height: 1460px;
   z-index: 99999;
 }
+.titulo_principal {
+  width: 100%;
+  position: absolute;
+  top: 220px;
+  z-index: 1000;
+}
+
+.titulo_principal h1 {
+  text-align: center;
+  color: white;
+  font-size: 9vw;
+  font-family: "Helvetica LT Std", Helvetica-LT-Std-Ultra-Compressed;
+  display: block;
+  clear: both;
+}
+.titulo_principal h2 {
+}
+
 .poligono_abajo {
   -webkit-clip-path: polygon(
     0 88%,
@@ -106,7 +159,7 @@ export default {
   );
   position: absolute;
   height: 720px;
-    width: 100%;
+  width: 100%;
   background: red;
   top: 63px;
 }
