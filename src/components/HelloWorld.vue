@@ -1,184 +1,132 @@
 <template>
-  <section class="contenedor">
-    <v-flex xs12 class="logo">
-      <v-img :src="require('../assets/logo2.png')" contain></v-img>
+  <v-layout wrap fluid class="text-xs-center">
+    <v-flex xs12 sm12 offset-xs4 offset-sm1 offset-md1 offset-lg1>
+      <v-img :src="require('../assets/logo2-ext.png')" class="logo"></v-img>
     </v-flex>
 
+    <v-flex xs12>
+      <v-img :src="require('../assets/web-encabezado-2.png')" class="imagen_danny"></v-img>
+    </v-flex>
+    <v-flex xs12 class="contenido">
+      <v-flex xs12>
+        <v-layout
+          row
+          wrap
+          style="padding:30px"
+          color="transparent"
+          justify-start
+          v-bind:style="getLandingSeccion_1_BGColor"
+        >
+          
 
-      <v-flex xs12 class="poligono_arriba"></v-flex>
+          <v-layout wrap>
+            <transition name="fade">
+              <v-flex xs12 sm4 style="padding:20px">
+                <v-card-title class="text-xs-center">
+                  <v-layout align-center column justify-center>                    
+                    <v-icon x-large color="white" style="font-size:100px;">fa-user-circle</v-icon>
+                    <h2 color="white">Entrenamiento Personalizado</h2>
+                  </v-layout>
+                </v-card-title>
 
-      <div class="titulo_principal">
-        <h1>ENTRENA INTELIGENTE</h1>
-      </div>
+                <v-card>
+                  <v-layout style="padding:20px">
+                    <p></p>
+                  </v-layout>
+                </v-card>
+              </v-flex>
+            </transition>
 
-      <div class="titulo_principal">
-        <h2>CUANTIFICA TU PROGRESO</h2>
-      </div>
-
-      <v-flex xs12 class="imagen_danny">
-        <v-img :src="require('../assets/danny-face.png')" class="imagen_danny"></v-img>
+            <transition name="fade">
+              <v-flex xs12 sm4 style="padding:20px">
+                <v-card-title class="text-xs-center">
+                  <v-layout align-center justify-center>
+                    <v-icon x-large color="white" style="font-size:100px;">favorite_border</v-icon>
+                  </v-layout>
+                </v-card-title>
+                <v-layout style="padding:20px">
+                  <p>Progressively build 2.0 manufactured products before go forward partnerships. Rapidiously matrix go forward initiatives without cross-platform potentialities. Enthusiastically matrix mission-critical paradigms whereas high-quality value.</p>
+                </v-layout>
+              </v-flex>
+            </transition>
+            <transition name="fade">
+              <v-flex xs12 sm4 style="padding:20px">
+                <v-card-title class="text-xs-center">
+                  <v-layout align-center justify-center>
+                    <v-icon x-large color="white" style="font-size:100px;">fa-dumbbell</v-icon>
+                  </v-layout>
+                </v-card-title>
+                <v-layout style="padding:20px">
+                  <p>Progressively build 2.0 manufactured products before go forward partnerships. Rapidiously matrix go forward initiatives without cross-platform potentialities. Enthusiastically matrix mission-critical paradigms whereas high-quality value.</p>
+                </v-layout>
+              </v-flex>
+            </transition>
+          </v-layout>
+        </v-layout>
       </v-flex>
-    
-    <!-- <div class="poligono_arriba"></div> -->
-    <!--       <v-flex xs12 class="poligono_arriba" row>
-    -->
-    <!-- <v-img :src="require('../assets/flecha-roja-arriba.png')"  ></v-img> -->
-    <!-- <div class="poligono_arriba"></div> -->
-    <!--  </v-flex> -->
-    <v-flex xs12 fill class="imagen_fondo">
-      <v-img :src="require('../assets/imagen_fondo.png')" class="imagen_fondo"></v-img>
     </v-flex>
-    <!-- margin bottom mb-4 -->
-    <v-flex xs12 class="poligono_abajo">
-      <!-- <v-img :src="require('../assets/flecha-roja-abajo.png')"  ></v-img> -->
-      <!-- <div class="poligono_abajo"></div> -->
-    </v-flex>
-  </section>
+  </v-layout>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  data: () => ({})
+  data() {
+    return {
+      seccion1: false,
+      seccion2: false,
+      seccion3: false,
+      seccion4: false,
+      emailErrors: [],
+      email: "",
+      loading: false
+    };
+  },
+  components: {
+    name: "Home"
+  },
+  methods: {
+    getPosts() {},
+    submit() {}
+  },
+  computed: {
+    ...mapGetters({
+      getLandingSeccion_1_BGColor: "getLandingSeccion_1_BGColor",
+      getLandingSeccion_2_BGColor: "getLandingSeccion_2_BGColor",
+      getLandingSeccion_3_BGColor: "getLandingSeccion_3_BGColor",
+      getLandingSeccion_4_BGColor: "getLandingSeccion_4_BGColor",
+      getLandingSeccion_5_BGColor: "getLandingSeccion_5_BGColor"
+    })
+  }
 };
 </script>
 
 <style>
-.contenedor {
-  margin-top: 10px;
-  position: relative;
-  width: 100%;
+.contenido {
   height: 100%;
+  background-color: #181819;
 }
 
 .logo {
-  position: absolute;
+  width: 202px;
+  height: 104px;
+  top: 10px;
 }
 
-.poligono_arriba {
-  -webkit-clip-path: polygon(
-    37% 12%,
-    54% 74%,
-    100% 2%,
-    100% 37%,
-    52% 94%,
-    36% 29%,
-    0% 91%,
-    0% 80%
-  );
-  clip-path: polygon(
-    37% 12%,
-    54% 74%,
-    100% 2%,
-    100% 37%,
-    52% 94%,
-    36% 29%,
-    0% 91%,
-    0% 80%
-  );
-  height: 120px;
-  width: 100%;
-  background: red;
-  position: relative;
-  z-index: 2;
-  top: 92px;
-}
-.poligono_abajo {
-  -webkit-clip-path: polygon(
-    0% 62%,
-    46% 3%,
-    62% 71%,
-    100% 3%,
-    100% 12%,
-    61% 88%,
-    45% 25%,
-    0 95%
-  );
-  clip-path: polygon(
-    0% 62%,
-    46% 3%,
-    62% 71%,
-    100% 3%,
-    100% 12%,
-    61% 88%,
-    45% 25%,
-    0 95%
-  );
-  height: 118px;
-  background: red;
-  position: relative;
-  top: -92px;
-}
-.imagen_fondo {
-  -webkit-clip-path: polygon(
-    0 15%,
-    36% 1%,
-    52% 16%,
-    100% 3%,
-    100% 85%,
-    62% 99%,
-    47% 84%,
-    0% 97%
-  );
-  clip-path: polygon(
-    0 15%,
-    36% 1%,
-    52% 16%,
-    100% 3%,
-    100% 85%,
-    62% 99%,
-    47% 84%,
-    0% 97%
-  );
-
-  height: 521px;
-  z-index: 2;
-  width: 100%;
-  object-fit: fill;
-}
 .imagen_danny {
-  top : -50px;
-
-  position: relative;
-  z-index: 99999;
-}
-.titulo_principal {
+  top: 20px;
+  background-color: #1f1f1f;
   width: 100%;
-  position: absolute;
-  top: 220px;
-  z-index: 1000;
-}
-
-.titulo_principal h1 {
-  text-align: center;
-  color: white;
-  font-size: 9vw;
-  font-family: "Helvetica LT Std", Helvetica-LT-Std-Ultra-Compressed;
-  display: block;
-  clear: both;
-}
-.titulo_principal h2 {
-}
-
-.triangulo_blanco_abajo_izquierda {
-  -webkit-clip-path: polygon(55% 65%, 0 76%, 0 80%);
-  clip-path: polygon(55% 65%, 0 76%, 0 80%);
-  background: white;
-}
-.triangulo_blanco_arriba_izquierda {
-  -webkit-clip-path: polygon(38% 27%, 0 35%, 0 38%);
-  clip-path: polygon(38% 27%, 0 35%, 0 38%);
-  background: white;
-}
-
-.triangulo_rojo_abajo_derecha {
-  -webkit-clip-path: polygon(100% 68%, 74% 77%, 100% 70%);
-  clip-path: polygon(100% 68%, 74% 77%, 100% 70%);
-  background: red;
-}
-
-.triangulo_rojo_arriba_derecha {
-  -webkit-clip-path: polygon(100% 68%, 74% 77%, 100% 70%);
-  clip-path: polygon(100% 68%, 74% 77%, 100% 70%);
-  background: red;
+  height: 100%;
+  clip-path: polygon(
+    0 18%,
+    66% 6%,
+    68% 0%,
+    100% 0%,
+    100% 100%,
+    62% 100%,
+    27% 100%,
+    0% 100%
+  );
 }
 </style>
